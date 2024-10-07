@@ -1,15 +1,8 @@
 services:
   node:
     container_name: backend
-    # image: 'node:latest'
     build: ./backend
     working_dir: /home/node/app
-    # env_file:
-    #   - .env
-    # command:
-    #   - /bin/sh
-    #   - '-c'
-    #   - 'npm install && npm start'
     ports:
       - '3001:3001'
     volumes:
@@ -17,15 +10,8 @@ services:
     # - '/home/node/app/node_modules' 
     links:
       - mongo
-    # networks:
-    #   - my-network
   mongo:
     container_name: database
     image: 'mongo:latest'
     ports:
       - '27017:27017'
-    # networks:
-    #   - my-network
-# networks:
-#   my-network:
-#     driver: bridge
